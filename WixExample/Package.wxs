@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+
+	<Package Id="Swinburne.SampleApp"
+			 Name="SampleApp Setup"
+			 Manufacturer="SwinburneStudent"
+			 Version="1.0.0.0"
+			 UpgradeCode="8E77EB57-88A1-485B-8D3E-73E1567986CE"
+			 Scope="perMachine">
+
+		<MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+		<MediaTemplate EmbedCab="yes" />
+
+		<StandardDirectory Id="ProgramFiles6432Folder">
+			<Directory Id="INSTALLFOLDER" Name="SampleApp104466305" />
+		</StandardDirectory>
+
+		<Feature Id="Main">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+	</Package>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="MainExecutable" Guid="857D5AF7-3D9C-4AD7-BC3D-4FF0D62573A9">
+				<File Id="SampleAppEXE"
+					  Source="$(var.SampleApp104466305.TargetDir)SampleApp104466305.exe"
+					  KeyPath="yes" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+
+</Wix>
