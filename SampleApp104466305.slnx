@@ -5,7 +5,9 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="SampleApp104466305/SampleApp104466305.csproj" />
+  <Project Path="PongCore/PongCore.csproj" Id="db972483-899f-4d9f-ad93-a9b23e6507dc" />
+  <Project Path="PongRender/PongRender.csproj" Id="4f3f2c8d-76fd-4108-896b-7d860735395c" />
+  <Project Path="SampleApp104466305/SampleApp104466305.csproj" Id="f6a6ae0a-d45b-4156-9600-0ee9d587adc2" />
   <Project Path="WixExample/WixExample.wixproj" Type="b7dd6f7e-def8-4e67-b5b7-07ef123db6f0">
     <Platform Solution="*|Any CPU" Project="x64" />
   </Project>

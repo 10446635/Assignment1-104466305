@@ -8,26 +8,59 @@
 			 UpgradeCode="8E77EB57-88A1-485B-8D3E-73E1567986CE"
 			 Scope="perMachine">
 
+		<SummaryInformation Description="Console ping-pong simulator with modular libraries" />
+
 		<MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
 		<MediaTemplate EmbedCab="yes" />
 
 		<StandardDirectory Id="ProgramFiles6432Folder">
-			<Directory Id="INSTALLFOLDER" Name="SampleApp104466305" />
+			<Directory Id="INSTALLFOLDER" Name="PongTool" />
 		</StandardDirectory>
 
-		<Feature Id="Main">
-			<ComponentGroupRef Id="ProductComponents" />
+		<Feature Id="Main" Title="PongTool" Level="1">
+			<ComponentGroupRef Id="ApplicationComponents" />
 		</Feature>
 
 	</Package>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="MainExecutable" Guid="857D5AF7-3D9C-4AD7-BC3D-4FF0D62573A9">
-				<File Id="SampleAppEXE"
+		<ComponentGroup Id="ApplicationComponents" Directory="INSTALLFOLDER">
+
+			<!-- Main executable-->
+			<Component Id="cmpPongToolExe" Guid="857D5AF7-3D9C-4AD7-BC3D-4FF0D62573A9">
+				<File Id="filPongToolExe"
 					  Source="$(var.SampleApp104466305.TargetDir)SampleApp104466305.exe"
 					  KeyPath="yes" />
 			</Component>
+
+			<!-- dependency one simulation library -->
+			<Component Id="cmpPongCoreDll" Guid="5D9E23E2-178B-4F8B-B79A-696A57209578">
+				<File Id="filPongCoreDll"
+					  Source="$(var.SampleApp104466305.TargetDir)PongCore.dll"
+					  KeyPath="yes" />
+			</Component>
+
+			<!-- dependency 2 rendering library -->
+			<Component Id="cmpPongRenderDll" Guid="{72B593F5-B253-4BA8-999F-0D5984D18E22}">
+				<File Id="filPongRenderDll"
+					  Source="$(var.SampleApp104466305.TargetDir)PongRender.dll"
+					  KeyPath="yes" />
+			</Component>
+
+			<!-- dependency 3 thirdparty JSON library -->
+			<Component Id="cmpNewtonsoftJsonDll" Guid="EA10DC37-94D1-4D17-A957-A3BEAAD9E534">
+				<File Id="filNewtonsoftJsonDll"
+					  Source="$(var.SampleApp104466305.TargetDir)Newtonsoft.Json.dll"
+					  KeyPath="yes" />
+			</Component>
+
+			<!-- configuration payload -->
+			<Component Id="cmpPongSettings" Guid="872CEC86-6EF3-4572-B9D1-C3DC191ADCCB">
+				<File Id="filPongSettings"
+					  Source="$(var.SampleApp104466305.TargetDir)pong.settings.json"
+					  KeyPath="yes" />
+			</Component>
+
 		</ComponentGroup>
 	</Fragment>
 

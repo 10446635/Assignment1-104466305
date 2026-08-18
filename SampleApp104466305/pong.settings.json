@@ -1,0 +1,5 @@
+{
+  "DelayMilliseconds": 40,
+  "Ball": "O",
+  "Wall": "|"
+}
