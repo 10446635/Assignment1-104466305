@@ -4,7 +4,7 @@
 	<Package Id="Swinburne.SampleApp"
 			 Name="SampleApp Setup"
 			 Manufacturer="SwinburneStudent"
-			 Version="1.0.0.0"
+			 Version="1.1.0.0"
 			 UpgradeCode="8E77EB57-88A1-485B-8D3E-73E1567986CE"
 			 Scope="perMachine">
 
